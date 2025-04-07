@@ -11,6 +11,10 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+        <StackPanel>
+            <TextBox Height="20" Margin="3"/>
+            <ComboBox Margin="3" Name ="cb_capitals"/>
+            <Button Margin="3" Content="Get Pogoda"></Button>
+        </StackPanel>
     </Grid>
 </Window>

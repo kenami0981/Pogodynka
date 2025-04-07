@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pogodynka.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace Pogodynka
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CapitalsCollection _capitals = new CapitalsCollection();
         public MainWindow()
         {
+            
             InitializeComponent();
+            cb_capitals.ItemsSource = _capitals;
+            
         }
     }
 }
