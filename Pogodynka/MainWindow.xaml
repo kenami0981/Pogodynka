@@ -14,7 +14,8 @@
         <StackPanel>
             <TextBox Height="20" Margin="3"/>
             <ComboBox Margin="3" Name ="cb_capitals"/>
-            <Button Margin="3" Content="Get Pogoda"></Button>
+            <Button Margin="3" Content="Get Pogoda" Click="SprawdzPogode_Click"></Button>
+            <TextBlock x:Name="Display_json" Height="200" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>

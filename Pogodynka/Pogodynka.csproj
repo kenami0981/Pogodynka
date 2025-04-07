@@ -107,6 +107,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ApiClient.cs" />
     <Compile Include="Model\Capitals.cs" />
     <Compile Include="Model\CapitalsCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

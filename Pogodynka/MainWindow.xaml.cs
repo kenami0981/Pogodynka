@@ -27,7 +27,16 @@ namespace Pogodynka
             
             InitializeComponent();
             cb_capitals.ItemsSource = _capitals;
+
+
             
+            
+        }
+        private async void SprawdzPogode_Click(object sender, RoutedEventArgs e)
+        {
+            var api = new ApiClient();
+            string json = await api.GetWeatherData("Warszawa");
+            Display_json.Text = json;
         }
     }
 }
