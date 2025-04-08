@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -10,7 +12,14 @@ namespace Pogodynka.Model
     internal class ApiClient
     {
         private static readonly HttpClient client = new HttpClient();
-        private readonly string apiKey = "b318089b504f0e720c03b77d53a4cc41";
+        private readonly string apiKey;
+
+        public ApiClient()
+        {
+            var json = File.ReadAllText("C:\\Users\\HP\\Desktop\\Programowanie I\\WPF\\Pogodynka\\Pogodynka\\appsettings.json");
+            var config = JObject.Parse(json);
+            apiKey = config["OpenWeatherMapApiKey"]?.ToString();
+        }
 
         public async Task<string> GetWeatherData(string city) { 
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric&lang=pl";
