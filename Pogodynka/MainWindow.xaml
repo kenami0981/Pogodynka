@@ -12,7 +12,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <TextBox Height="20" Margin="3"/>
+            <TextBox Height="20" Margin="3" Name="tb_capital"/>
             <ComboBox Margin="3" Name ="cb_capitals"/>
             <Button Margin="3" Content="Get Pogoda" Click="SprawdzPogode_Click"></Button>
             <TextBlock x:Name="Display_json" Height="200" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"></TextBlock>

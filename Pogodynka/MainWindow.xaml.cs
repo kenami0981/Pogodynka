@@ -35,8 +35,29 @@ namespace Pogodynka
         private async void SprawdzPogode_Click(object sender, RoutedEventArgs e)
         {
             var api = new ApiClient();
-            string json = await api.GetWeatherData("Warszawa");
-            Display_json.Text = json;
+            string city = null;
+            if (cb_capitals.SelectedItem != null)
+            {
+                city = cb_capitals.SelectedItem.ToString();
+                cb_capitals.Text = null;
+            }
+            else if (tb_capital.Text != "")
+            {
+                city = tb_capital.Text;
+                tb_capital.Text = "";
+            }
+            else {
+                return;
+            }
+                var json = await api.GetWeatherData(city);
+            //if (json == "Błąd: NotFound") {
+            //    Display_json.Text = "Nieporawne miasto";
+            //    return; }
+
+            Display_json.Text = $"Temperatura: {json.Main.temperature.ToString()}\n";
+            Display_json.Text += $"Wilgotoność: {json.Main.humidity.ToString()}\n";
+            Display_json.Text += $"Ciśnienie atmosferyczne: {json.Main.pressure.ToString()}\n";
+            Display_json.Text += $"Opis: {json.WeatherD[0].Description.ToString()}\n";
         }
     }
 }

@@ -50,3 +50,4 @@ C:\Users\HP\Desktop\Programowanie I\WPF\Pogodynka\Pogodynka\bin\Debug\System.Tex
 C:\Users\HP\Desktop\Programowanie I\WPF\Pogodynka\Pogodynka\bin\Debug\System.Text.Json.xml
 C:\Users\HP\Desktop\Programowanie I\WPF\Pogodynka\Pogodynka\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\HP\Desktop\Programowanie I\WPF\Pogodynka\Pogodynka\bin\Debug\System.ValueTuple.xml
+C:\Users\HP\Desktop\Programowanie I\WPF\Pogodynka\Pogodynka\obj\Debug\Pogodynka_Content.g.cs

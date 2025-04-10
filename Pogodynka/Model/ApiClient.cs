@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,18 +22,19 @@ namespace Pogodynka.Model
             apiKey = config["OpenWeatherMapApiKey"]?.ToString();
         }
 
-        public async Task<string> GetWeatherData(string city) { 
+        public async Task<Weather> GetWeatherData(string city) { 
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric&lang=pl";
             
             HttpResponseMessage response = await client.GetAsync(url);
             if(response.IsSuccessStatusCode)
             {
                 string result = await response.Content.ReadAsStringAsync();
-                return result;
+                Weather weather = JsonConvert.DeserializeObject<Weather>(result);
+                return weather;
             }
             else
             {
-                return $"Błąd: {response.StatusCode}";
+                throw new Exception(response.StatusCode.ToString());
             }
             
         }

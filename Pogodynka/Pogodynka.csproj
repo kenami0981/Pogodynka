@@ -162,6 +162,7 @@
     <Compile Include="Model\ApiClient.cs" />
     <Compile Include="Model\Capitals.cs" />
     <Compile Include="Model\CapitalsCollection.cs" />
+    <Compile Include="Model\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -188,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
