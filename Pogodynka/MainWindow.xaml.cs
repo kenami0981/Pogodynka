@@ -41,19 +41,20 @@ namespace Pogodynka
                 city = cb_capitals.SelectedItem.ToString();
                 cb_capitals.Text = null;
             }
-            else if (tb_capital.Text != "")
-            {
-                city = tb_capital.Text;
-                tb_capital.Text = "";
+            else if (cb_capitals.Text != "") { 
+                city = cb_capitals.Text;
+                cb_capitals.Text = null;
             }
-            else {
+            else
+            {
                 return;
             }
                 var json = await api.GetWeatherData(city);
             //if (json == "Błąd: NotFound") {
             //    Display_json.Text = "Nieporawne miasto";
             //    return; }
-
+            WeatherInfo.Visibility = Visibility.Visible;
+            Display_city.Text = $"{city}";
             Display_json.Text = $"Temperatura: {json.Main.temperature.ToString()}\n";
             Display_json.Text += $"Wilgotoność: {json.Main.humidity.ToString()}\n";
             Display_json.Text += $"Ciśnienie atmosferyczne: {json.Main.pressure.ToString()}\n";

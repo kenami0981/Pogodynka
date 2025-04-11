@@ -7,15 +7,46 @@
         mc:Ignorable="d"
         Title="Pogodynka" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="White" Offset="0.0" />
+                <!-- kolor początkowy -->
+                <GradientStop Color="#FFACB6E5" Offset="1.0" />
+                <!-- kolor końcowy -->
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="9*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <TextBox Height="20" Margin="3" Name="tb_capital"/>
-            <ComboBox Margin="3" Name ="cb_capitals"/>
-            <Button Margin="3" Content="Get Pogoda" Click="SprawdzPogode_Click"></Button>
-            <TextBlock x:Name="Display_json" Height="200" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"></TextBlock>
+        <Image Grid.Row="0" Grid.Column="0" Source="/Media/pogodynka-icon.jpg" Width="40"></Image>
+        <TextBlock FontFamily="Candara" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" 
+                   Grid.Row="0" Grid.Column="1" Text="PogodynkaApp"></TextBlock>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" Width="400" VerticalAlignment="Center" Height="100">
+            <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="0" Margin="10">
+                <ComboBox  Background="Transparent"
+              BorderThickness="0" Margin="3" Name ="cb_capitals" IsEditable="True" Height="30" />
+            </Border>
+
+            <Border Width="200" CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="#FFD8F5FF" Padding="0" Margin="10">
+                <Button Margin="3" Content="Szukaj" Click="SprawdzPogode_Click" BorderThickness="0" Background="Transparent"></Button>
+            </Border>
+            
+            
         </StackPanel>
+        <Border Grid.Row="2" Grid.ColumnSpan="4"  HorizontalAlignment="Center" x:Name="WeatherInfo" Visibility="Hidden"  Background="WhiteSmoke" CornerRadius="15" Width="300" Height="150">
+            <StackPanel>
+                <TextBlock x:Name="Display_city" FontSize="28" HorizontalAlignment="Right" Margin="10 3" FontWeight="Bold"/>
+                <TextBlock x:Name="Display_json" Height="100" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="5"/>
+            </StackPanel>
+        </Border>
+
     </Grid>
 </Window>
