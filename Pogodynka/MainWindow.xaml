@@ -18,7 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -31,21 +31,51 @@
                    Grid.Row="0" Grid.Column="1" Text="PogodynkaApp"></TextBlock>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" Width="400" VerticalAlignment="Center" Height="100">
             <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="0" Margin="10">
-                <ComboBox  Background="Transparent"
+                <ComboBox VerticalContentAlignment="Center" Background="Transparent"
               BorderThickness="0" Margin="3" Name ="cb_capitals" IsEditable="True" Height="30" />
             </Border>
 
-            <Border Width="200" CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="#FFD8F5FF" Padding="0" Margin="10">
+            <Border Width="200" CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="#FFD8E7FF" Padding="0" Margin="10">
                 <Button Margin="3" Content="Szukaj" Click="SprawdzPogode_Click" BorderThickness="0" Background="Transparent"></Button>
             </Border>
             
             
         </StackPanel>
-        <Border Grid.Row="2" Grid.ColumnSpan="4"  HorizontalAlignment="Center" x:Name="WeatherInfo" Visibility="Hidden"  Background="WhiteSmoke" CornerRadius="15" Width="300" Height="150">
-            <StackPanel>
-                <TextBlock x:Name="Display_city" FontSize="28" HorizontalAlignment="Right" Margin="10 3" FontWeight="Bold"/>
-                <TextBlock x:Name="Display_json" Height="100" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="5"/>
-            </StackPanel>
+        <Border Grid.Row="2" Grid.ColumnSpan="4"  HorizontalAlignment="Center" x:Name="WeatherInfo" Visibility="Visible" Background="#80FEFEFF" CornerRadius="15" Width="400" Height="170">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--Nazwa miasta-->
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" x:Name="Display_city" FontSize="26" HorizontalAlignment="Right" Margin="10 3" FontWeight="Bold"/>
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
+                    <TextBlock FontFamily="Candara" x:Name="Display_temperature" FontSize="16" HorizontalAlignment="Center"/>
+                    <TextBlock FontFamily="Candara" x:Name="Display_temperature_value" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
+                    <TextBlock x:Name="Display_humidity" TextWrapping="Wrap" FontFamily="Candara" FontSize="16" HorizontalAlignment="Center"/>
+                    <TextBlock FontFamily="Candara" x:Name="Display_humidity_value" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="0" Margin="5">
+                    <TextBlock x:Name="Display_pressure" TextWrapping="Wrap" FontFamily="Candara" FontSize="16" HorizontalAlignment="Center"/>
+                    <TextBlock FontFamily="Candara" x:Name="Display_pressure_value" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
+                    <TextBlock x:Name="Display_describe" TextWrapping="Wrap" FontFamily="Candara" FontSize="16" HorizontalAlignment="Center"/>
+                    <TextBlock FontFamily="Candara" x:Name="Display_describe_value" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+            
+                
+
         </Border>
 
     </Grid>

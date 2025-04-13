@@ -55,10 +55,14 @@ namespace Pogodynka
             //    return; }
             WeatherInfo.Visibility = Visibility.Visible;
             Display_city.Text = $"{city}";
-            Display_json.Text = $"Temperatura: {json.Main.temperature.ToString()}\n";
-            Display_json.Text += $"Wilgotoność: {json.Main.humidity.ToString()}\n";
-            Display_json.Text += $"Ciśnienie atmosferyczne: {json.Main.pressure.ToString()}\n";
-            Display_json.Text += $"Opis: {json.WeatherD[0].Description.ToString()}\n";
+            Display_temperature.Text = $"Temperatura:";
+            Display_temperature_value.Text = $"{json.Main.temperature.ToString()}°C";
+            Display_humidity.Text += $"Wilgotoność:";
+            Display_humidity_value.Text = $"{json.Main.humidity.ToString()}%";
+            Display_pressure.Text += $"Ciśnienie atmosferyczne:";
+            Display_pressure_value.Text = $"{json.Main.pressure.ToString()} hPa";
+            Display_describe.Text += $"Opis:";
+            Display_describe_value.Text = $"{json.WeatherD[0].Description.ToString()}";
         }
     }
 }
