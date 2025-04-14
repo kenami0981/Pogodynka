@@ -26,9 +26,11 @@
             <ColumnDefinition Width="9*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <!--Logo i nazwa apki-->
         <Image Grid.Row="0" Grid.Column="0" Source="/Media/pogodynka-icon.jpg" Width="40"></Image>
         <TextBlock FontFamily="Candara" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" 
                    Grid.Row="0" Grid.Column="1" Text="PogodynkaApp"></TextBlock>
+        <!--Wyszukiwanie miasta-->
         <StackPanel Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" Width="400" VerticalAlignment="Center" Height="100">
             <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="0" Margin="10">
                 <ComboBox VerticalContentAlignment="Center" Background="Transparent"
@@ -41,7 +43,8 @@
             
             
         </StackPanel>
-        <Border Grid.Row="2" Grid.ColumnSpan="4"  HorizontalAlignment="Center" x:Name="WeatherInfo" Visibility="Visible" Background="#80FEFEFF" CornerRadius="15" Width="400" Height="170">
+        <!--Dane pogodowe-->
+        <Border Grid.Row="2" Grid.ColumnSpan="4"  HorizontalAlignment="Center" x:Name="WeatherInfo" Visibility="Hidden" Background="#80FEFEFF" CornerRadius="15" Width="400" Height="170">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
@@ -54,19 +57,22 @@
                 </Grid.ColumnDefinitions>
                 <!--Nazwa miasta-->
                 <TextBlock Grid.Row="0" Grid.ColumnSpan="2" x:Name="Display_city" FontSize="26" HorizontalAlignment="Right" Margin="10 3" FontWeight="Bold"/>
+                <!--Temperatura-->
                 <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
                     <TextBlock FontFamily="Candara" x:Name="Display_temperature" FontSize="16" HorizontalAlignment="Center"/>
                     <TextBlock FontFamily="Candara" x:Name="Display_temperature_value" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
                 </StackPanel>
+                <!--Wilgotoność-->
                 <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
                     <TextBlock x:Name="Display_humidity" TextWrapping="Wrap" FontFamily="Candara" FontSize="16" HorizontalAlignment="Center"/>
                     <TextBlock FontFamily="Candara" x:Name="Display_humidity_value" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
                 </StackPanel>
-
+                <!--Ciśnienie atmosferyczne-->
                 <StackPanel Grid.Row="2" Grid.Column="0" Margin="5">
                     <TextBlock x:Name="Display_pressure" TextWrapping="Wrap" FontFamily="Candara" FontSize="16" HorizontalAlignment="Center"/>
                     <TextBlock FontFamily="Candara" x:Name="Display_pressure_value" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
                 </StackPanel>
+                <!--Opis-->
 
                 <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
                     <TextBlock x:Name="Display_describe" TextWrapping="Wrap" FontFamily="Candara" FontSize="16" HorizontalAlignment="Center"/>
