@@ -49,10 +49,20 @@ namespace Pogodynka
             {
                 return;
             }
-                var json = await api.GetWeatherData(city);
-            //if (json == "Błąd: NotFound") {
-            //    Display_json.Text = "Nieporawne miasto";
-            //    return; }
+
+            var json = await api.GetWeatherData(city);
+            //try
+            //{
+            //    json = await api.GetWeatherData(city);
+            //}
+            //catch {
+            //    return;
+            //}
+            if (json == null) {
+                MessageBox.Show("Wprowadź poprawne dane");
+                return; 
+            }
+            
             WeatherInfo.Visibility = Visibility.Visible;
             Display_city.Text = $"{city}";
             Display_temperature.Text = $"Temperatura:";
@@ -63,6 +73,7 @@ namespace Pogodynka
             Display_pressure_value.Text = $"{json.Main.pressure.ToString()} hPa";
             Display_describe.Text += $"Opis:";
             Display_describe_value.Text = $"{json.WeatherD[0].Description.ToString()}";
+
         }
     }
 }
