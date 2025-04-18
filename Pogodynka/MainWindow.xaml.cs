@@ -36,6 +36,7 @@ namespace Pogodynka
         {
             var api = new ApiClient();
             string city = null;
+            //Sprawdzanie czy dane zostały wpisane
             if (cb_capitals.SelectedItem != null)
             {
                 city = cb_capitals.SelectedItem.ToString();
@@ -51,18 +52,12 @@ namespace Pogodynka
             }
 
             var json = await api.GetWeatherData(city);
-            //try
-            //{
-            //    json = await api.GetWeatherData(city);
-            //}
-            //catch {
-            //    return;
-            //}
+            //Zabezpieczenie przed wpisaniem nieistniejącego miasta
             if (json == null) {
                 MessageBox.Show("Wprowadź poprawne dane");
                 return; 
             }
-            
+            // Wyświetlanie danych pogodowych
             WeatherInfo.Visibility = Visibility.Visible;
             Display_city.Text = $"{city}";
             Display_temperature.Text = $"Temperatura:";
