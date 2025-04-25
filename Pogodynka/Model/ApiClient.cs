@@ -16,13 +16,14 @@ namespace Pogodynka.Model
         private static readonly HttpClient client = new HttpClient();
         private readonly string apiKey;
 
+        //Odczytywanie z pliku apikey
         public ApiClient()
         {
             var json = File.ReadAllText("C:\\Users\\HP\\Desktop\\Programowanie I\\WPF\\Pogodynka\\Pogodynka\\appsettings.json");
             var config = JObject.Parse(json);
             apiKey = config["OpenWeatherMapApiKey"]?.ToString();
         }
-
+        //Pobranie danych z api
         public async Task<Weather> GetWeatherData(string city) { 
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric&lang=pl";
             
